@@ -8,9 +8,6 @@
     "url": "git+https://github.com/MadCow0214/ContentsServer.git"
   },
   "author": "sonhansung",
-  "engines": {
-    "node": "12.13.0"
-  },
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
@@ -33,8 +30,7 @@
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/init.js --delay 2",
     "build:server": "babel src --out-dir build'",
-    "build": "npm run build:server && npm run copyAll",
-    "copyAll": "cp -R src/static build",
+    "build": "npm run build:server",
     "prebuild": "rm -rf build",
     "tunnel": "ngrok http 4000",
     "start": "cross-env PRODUCTION=true node build/init.js",

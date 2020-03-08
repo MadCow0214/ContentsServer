@@ -3,7 +3,8 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import { localsMiddleware } from "./middlewares";
+import { uploadVideoMiddleware, uploadImageMiddleware } from "./middlewares";
+import { postUpload } from "./controllers";
 
 const app = express();
 
@@ -13,11 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-app.use(localsMiddleware);
-
-//app.use("/", globalRouter);
-//app.use("/", userRouter);
-//app.use("/", videoRouter);
-//app.use("/", apiRouter);
+app.post("/upload/video", uploadVideoMiddleware, postUpload);
+app.post("/upload/image", uploadImageMiddleware, postUpload);
 
 export default app;

@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import { uploadVideoMiddleware, uploadImageMiddleware } from "./middlewares";
@@ -13,6 +14,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(cors());
 
 app.post("/upload/video", uploadVideoMiddleware, postUpload);
 app.post("/upload/image", uploadImageMiddleware, postUpload);

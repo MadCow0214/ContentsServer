@@ -10,12 +10,11 @@ import { postUpload } from "./controllers";
 const app = express();
 
 app.use(helmet());
-app.use(cors());
-app.options("*", cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(cors());
 
 app.post("/upload/video", uploadVideoMiddleware, postUpload);
 app.post("/upload/image", uploadImageMiddleware, postUpload);

@@ -14,8 +14,9 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(cors());
 
-app.post("/upload/video", cors(), uploadVideoMiddleware, postUpload);
-app.post("/upload/image", cors(), uploadImageMiddleware, postUpload);
+app.post("/upload/video", uploadVideoMiddleware, postUpload);
+app.post("/upload/image", uploadImageMiddleware, postUpload);
 
 export default app;

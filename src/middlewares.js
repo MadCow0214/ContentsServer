@@ -15,7 +15,7 @@ const multerVideo = multer({
     bucket: "sonhansung-contents/video"
   })
 });
-const multerAvatar = multer({
+const multerImage = multer({
   storage: multerS3({
     s3,
     acl: "public-read",
@@ -24,4 +24,4 @@ const multerAvatar = multer({
 });
 
 export const uploadVideoMiddleware = multerVideo.single("video");
-export const uploadImageMiddleware = multerAvatar.single("image");
+export const uploadImageMiddleware = multerImage.single("image");

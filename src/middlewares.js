@@ -5,7 +5,7 @@ import { S3Client } from "@aws-sdk/client-s3";
 const s3 = new S3Client({
   accessKeyId: process.env.AWS_KEY,
   secretAccessKey: process.env.AWS_SECRET,
-  region: "ap-northeast-2"
+  region: process.env.S3_REGION,
 });
 
 const multerVideo = multer({

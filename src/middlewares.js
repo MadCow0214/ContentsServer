@@ -4,8 +4,10 @@ import { S3Client } from "@aws-sdk/client-s3";
 import path from 'path';
 
 const s3 = new S3Client({
-  accessKeyId: process.env.AWS_KEY,
-  secretAccessKey: process.env.AWS_SECRET,
+  credentials: {
+    accessKeyId: process.env.AWS_KEY,
+    secretAccessKey: process.env.AWS_SECRET,
+  },
   region: process.env.S3_REGION,
 });
 
